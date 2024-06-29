@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 //import { Alert, AlertDescription } from '@/components/ui/alert';
 
-const API_URL = 'tan-lauralee-4.tiiny.site';
+const API_URL = 'servicehub-i4qehlpu1-axiodisis-projects.vercel.app';
 
 const AuthComponent = () => {
   const [email, setEmail] = useState('');
