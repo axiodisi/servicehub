@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import AuthComponent from './components/AuthComponent';
+import LandingPage from './components/LandingPage';
 
 const API_URL = 'https://your-tiny-host-url.com';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
+  const [showAuth, setShowAuth] = useState(false);
 
   useEffect(() => {
     // Check if the user is already authenticated
@@ -24,7 +26,6 @@ function App() {
         console.error('Error checking authentication:', error);
       }
     };
-
     checkAuth();
   }, []);
 
@@ -36,25 +37,34 @@ function App() {
       });
       setIsAuthenticated(false);
       setUser(null);
+      setShowAuth(false);
     } catch (error) {
       console.error('Error logging out:', error);
     }
   };
 
+  const handleAuthClick = () => {
+    setShowAuth(true);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Your App Name</h1>
+        <h1>ServiceHub</h1>
         {isAuthenticated && user && (
           <p>Welcome, {user.email} <button onClick={handleLogout}>Logout</button></p>
         )}
       </header>
       <main>
         {!isAuthenticated ? (
-          <AuthComponent onLoginSuccess={(userData) => {
-            setIsAuthenticated(true);
-            setUser(userData);
-          }} />
+          showAuth ? (
+            <AuthComponent onLoginSuccess={(userData) => {
+              setIsAuthenticated(true);
+              setUser(userData);
+            }} />
+          ) : (
+            <LandingPage onAuthClick={handleAuthClick} />
+          )
         ) : (
           <div>
             {/* Add your main app content here */}
