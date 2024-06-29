@@ -1,6 +1,6 @@
 {
-  "name": "your-project-name",
-  "version": "1.0.0",
+  "name": "servicehub",
+  "version": "0.1.0",
   "homepage": "https://axiodisi.github.io/servicehub",
   "private": true,
   "dependencies": {
