@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Alert, AlertDescription } from '@/components/ui/alert';
+//import { Alert, AlertDescription } from '@/components/ui/alert';
 
-const API_URL = 'https://your-tiny-host-url.com';
+const API_URL = 'tan-lauralee-4.tiiny.site';
 
 const AuthComponent = () => {
   const [email, setEmail] = useState('');
@@ -161,11 +161,12 @@ const AuthComponent = () => {
   return (
     <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-xl">
       {message && (
-        <Alert className="mb-4">
-          <AlertDescription>{message}</AlertDescription>
-        </Alert>
+        //<Alert className="mb-4">
+        //<AlertDescription>{message}</AlertDescription>
+        //</Alert>
+        <div className='mb-4'>{message}</div>
       )}
-      
+
       {!isLoggedIn ? (
         currentView === 'login' ? (
           <>
